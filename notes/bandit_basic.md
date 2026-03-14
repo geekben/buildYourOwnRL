@@ -56,13 +56,14 @@ $$
 
 只需存储当前估计和计数，节省内存。
 
-## 三种策略对比
+## 四种策略对比
 
 | 策略 | 探索方式 | 优点 | 缺点 |
 |------|---------|------|------|
 | 贪婪 | 不探索 | 简单 | 可能陷入次优 |
 | ε-greedy | 随机探索 | 简单有效 | 探索效率低 |
 | UCB | 智能探索 | 理论最优 | 需要调参 |
+| Thompson Sampling | 贝叶斯采样 | 无参数、最优 | 需要分布假设 |
 
 ## 实验结果
 
@@ -92,6 +93,40 @@ UCB 与 ε-greedy 的对比：
 ![UCB 对比](../images/bandit_ucb_comparison.png)
 
 UCB 通常比 ε-greedy 更快找到最优臂，因为它基于不确定性智能探索，而非随机探索。
+
+### Thompson Sampling（扩展）
+
+Thompson Sampling 与其他方法的对比：
+
+![Thompson Sampling 对比](../images/bandit_thompson_comparison.png)
+
+Thompson Sampling 是一种贝叶斯方法，通过从后验分布采样实现探索。
+
+## Thompson Sampling 详解
+
+$$
+\text{选择臂 } a = \arg\max_a \theta_a, \quad \theta_a \sim \text{Posterior}_a
+$$
+
+核心思想：
+1. **维护后验分布**：每个臂的奖励均值服从一个分布（而非点估计）
+2. **采样选择**：从每个臂的后验分布中采样，选择采样值最大的臂
+3. **自然探索**：不确定性大的臂，后验分布方差大，采样波动大，有更高概率被选中
+
+**优势**：
+- 无需调节参数（UCB 需要调探索系数 c）
+- 理论上达到最优遗憾界
+- 容易扩展到其他奖励分布（伯努利、高斯等）
+
+后验分布演变过程：
+
+![后验分布 step 1](../images/bandit_thompson_posterior_step1.png)
+
+![后验分布 step 10](../images/bandit_thompson_posterior_step10.png)
+
+![后验分布 step 100](../images/bandit_thompson_posterior_step100.png)
+
+可以看到，随着采样次数增加，后验分布逐渐收窄（不确定性降低），均值趋近真实值。
 
 ## UCB 公式详解
 
@@ -135,6 +170,9 @@ python bandit_epsilon_greedy.py
 
 # 运行 UCB 策略对比
 python bandit_ucb.py
+
+# 运行 Thompson Sampling 策略（扩展）
+python bandit_thompson.py
 ```
 
 ## 参考资料

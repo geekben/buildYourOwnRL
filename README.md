@@ -20,6 +20,8 @@ bandit_epsilon_greedy.py          # ε-greedy：引入探索与利用的平衡
        ↓
 bandit_ucb.py                     # UCB：基于不确定性的智能探索
        ↓
+bandit_thompson.py                # Thompson Sampling：贝叶斯探索（扩展）
+       ↓
 mdp_gridworld.py                  # 网格世界：引入状态、动作、转移
        ↓
 value_iteration.py                # 值迭代：动态规划求解
@@ -52,6 +54,7 @@ sac_v1.py                         # SAC：最大熵强化学习
 | `bandit.py` | 多臂老虎机基础，贪婪策略演示探索与利用的困境 | `notes/bandit_basic.md` |
 | `bandit_epsilon_greedy.py` | ε-greedy 策略，以 ε 概率探索，对比不同 ε 值效果 | |
 | `bandit_ucb.py` | UCB 上置信界，基于不确定性的智能探索 | |
+| `bandit_thompson.py` | Thompson Sampling，贝叶斯后验采样探索（扩展） | |
 
 ### 阶段二：马尔可夫决策过程（表格方法）
 
