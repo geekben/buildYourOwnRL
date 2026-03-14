@@ -157,9 +157,9 @@ def plot_results(avg_rewards, optimal_pct):
     axes[1].set_ylim([0, 100])
     
     plt.tight_layout()
-    plt.savefig('bandit_greedy_result.png', dpi=150)
+    plt.savefig('images/bandit_greedy_result.png', dpi=150)
     plt.close()
-    print("结果已保存到 bandit_greedy_result.png")
+    print("结果已保存到 images/bandit_greedy_result.png")
 
 
 if __name__ == "__main__":

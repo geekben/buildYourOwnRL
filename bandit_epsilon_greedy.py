@@ -145,9 +145,9 @@ def plot_comparison(results):
     axes[1].set_ylim([0, 100])
     
     plt.tight_layout()
-    plt.savefig('bandit_epsilon_greedy_comparison.png', dpi=150)
+    plt.savefig('images/bandit_epsilon_greedy_comparison.png', dpi=150)
     plt.close()
-    print("结果已保存到 bandit_epsilon_greedy_comparison.png")
+    print("结果已保存到 images/bandit_epsilon_greedy_comparison.png")
 
 
 if __name__ == "__main__":

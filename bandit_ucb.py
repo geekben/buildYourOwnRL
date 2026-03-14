@@ -172,9 +172,9 @@ def plot_comparison(results):
     axes[1].set_ylim([0, 100])
     
     plt.tight_layout()
-    plt.savefig('bandit_ucb_comparison.png', dpi=150)
+    plt.savefig('images/bandit_ucb_comparison.png', dpi=150)
     plt.close()
-    print("结果已保存到 bandit_ucb_comparison.png")
+    print("结果已保存到 images/bandit_ucb_comparison.png")
 
 
 def demonstrate_ucb_intuition():

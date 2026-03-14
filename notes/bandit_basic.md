@@ -64,6 +64,35 @@ Q_{n+1} = Q_n + (R_n - Q_n) / (n+1)
 | ε-greedy | 随机探索 | 简单有效 | 探索效率低 |
 | UCB | 智能探索 | 理论最优 | 需要调参 |
 
+## 实验结果
+
+### 贪婪策略
+
+贪婪策略从不探索，容易陷入次优选择：
+
+![贪婪策略结果](../images/bandit_greedy_result.png)
+
+可以看到，选择最优臂的比例始终较低（约 36%），因为一旦某个次优臂初始运气好，贪婪策略就会一直选择它。
+
+### ε-greedy 策略对比
+
+不同 ε 值的效果对比：
+
+![ε-greedy 对比](../images/bandit_epsilon_greedy_comparison.png)
+
+关键发现：
+- ε=0（贪婪）效果最差：探索不足
+- ε=0.1 效果最好：平衡了探索与利用
+- ε=0.5 效果下降：探索过多，浪费时间
+
+### UCB vs ε-greedy
+
+UCB 与 ε-greedy 的对比：
+
+![UCB 对比](../images/bandit_ucb_comparison.png)
+
+UCB 通常比 ε-greedy 更快找到最优臂，因为它基于不确定性智能探索，而非随机探索。
+
 ## UCB 公式详解
 
 ```
