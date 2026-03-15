@@ -65,6 +65,8 @@ $$
 | UCB | 智能探索 | 理论最优 | 需要调参 |
 | Thompson Sampling | 贝叶斯采样 | 无参数、最优 | 需要分布假设 |
 
+---
+
 ## 实验结果
 
 ### 贪婪策略
@@ -86,6 +88,22 @@ $$
 - ε=0.1 效果最好：平衡了探索与利用
 - ε=0.5 效果下降：探索过多，浪费时间
 
+---
+
+## UCB 公式详解
+
+$$
+\text{UCB}(a) = Q(a) + c \sqrt{\frac{\ln t}{N(a)}}
+$$
+
+- $Q(a)$：利用项，选择当前估计最好的
+- $c \sqrt{\frac{\ln t}{N(a)}}$：探索项
+  - $N(a)$ 小 → 不确定性大 → 探索项大
+  - $N(a)$ 大 → 不确定性小 → 探索项小
+  - $\ln t$ 随时间缓慢增长，保证持续探索
+
+**直觉**：乐观面对不确定性。如果一个臂还没被充分探索，我们假设它可能是好的。
+
 ### UCB vs ε-greedy
 
 UCB 与 ε-greedy 的对比：
@@ -94,7 +112,9 @@ UCB 与 ε-greedy 的对比：
 
 UCB 通常比 ε-greedy 更快找到最优臂，因为它基于不确定性智能探索，而非随机探索。
 
-### Thompson Sampling（扩展）
+---
+
+## Thompson Sampling（扩展）
 
 Thompson Sampling 与其他方法的对比：
 
@@ -102,7 +122,7 @@ Thompson Sampling 与其他方法的对比：
 
 Thompson Sampling 是一种贝叶斯方法，通过从后验分布采样实现探索。
 
-## Thompson Sampling 详解
+### Thompson Sampling 详解
 
 $$
 \text{选择臂 } a = \arg\max_a \theta_a, \quad \theta_a \sim \text{Posterior}_a
@@ -127,20 +147,6 @@ $$
 ![后验分布 step 100](../images/bandit_thompson_posterior_step100.png)
 
 可以看到，随着采样次数增加，后验分布逐渐收窄（不确定性降低），均值趋近真实值。
-
-## UCB 公式详解
-
-$$
-\text{UCB}(a) = Q(a) + c \sqrt{\frac{\ln t}{N(a)}}
-$$
-
-- $Q(a)$：利用项，选择当前估计最好的
-- $c \sqrt{\frac{\ln t}{N(a)}}$：探索项
-  - $N(a)$ 小 → 不确定性大 → 探索项大
-  - $N(a)$ 大 → 不确定性小 → 探索项小
-  - $\ln t$ 随时间缓慢增长，保证持续探索
-
-**直觉**：乐观面对不确定性。如果一个臂还没被充分探索，我们假设它可能是好的。
 
 ## 为什么从多臂老虎机开始？
 
