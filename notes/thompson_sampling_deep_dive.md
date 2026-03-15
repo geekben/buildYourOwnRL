@@ -79,13 +79,13 @@ self.posterior_var = np.full(n_arms, prior_var=1, dtype=float)
 ```python
 def update(self, arm, reward):
     self.counts[arm] += 1
-    self.sum_rewards[arm] += reward;
+    self.sum_rewards[arm] += reward
     
-    n = self.counts[arm];
+    n = self.counts[arm]
     
     # 后验精度 = 先验精度 + 数据精度
     posterior_precision = prior_precision + data_precision
-    self.posterior_var[arm] = 1.0 / posterior_precision;
+    self.posterior_var[arm] = 1.0 / posterior_precision
     
     # 后验均值 = 精度加权平均
     self.posterior_mean[arm] = (
@@ -372,16 +372,16 @@ def select_action(self):
 def update(self, arm, reward):
     """更新选中臂的后验分布"""
     self.counts[arm] += 1
-    self.sum_rewards[arm] += reward;
+    self.sum_rewards[arm] += reward
     
-    n = self.counts[arm];
+    n = self.counts[arm]
     
     # 精度形式的优雅更新
     prior_precision = 1.0 / self.reward_var
-    data_precision = n / self.reward_var;
+    data_precision = n / self.reward_var
     
     posterior_precision = prior_precision + data_precision
-    self.posterior_var[arm] = 1.0 / posterior_precision;
+    self.posterior_var[arm] = 1.0 / posterior_precision
     
     # 精度加权平均
     self.posterior_mean[arm] = (
