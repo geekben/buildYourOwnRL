@@ -454,7 +454,7 @@ thompson_agent = ThompsonSamplingGaussian(n_arms=10)  # 开箱即用！
 信念弱（σ大）  → 采样波动 → 有机会被选 → 探索
 
 这种"信心度与选择概率正相关"的机制，
-就是 Thompson Sampling 的精���之处！
+就是 Thompson Sampling 的精妙之处！
 ```
 
 ### 扩展方向
