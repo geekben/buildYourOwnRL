@@ -6,6 +6,7 @@
 
 ```bash
 pip install -r requirements.txt
+cd phase1_bandit
 python bandit_epsilon_greedy.py
 ```
 
@@ -14,13 +15,13 @@ python bandit_epsilon_greedy.py
 ## 学习路线图
 
 ```
-bandit.py                         # 多臂老虎机：贪婪策略（RL 的 Hello World）
+phase1_bandit/bandit.py           # 多臂老虎机：贪婪策略（RL 的 Hello World）
        ↓
-bandit_epsilon_greedy.py          # ε-greedy：引入探索与利用的平衡
+phase1_bandit/bandit_epsilon_greedy.py  # ε-greedy：引入探索与利用的平衡
        ↓
-bandit_ucb.py                     # UCB：基于不确定性的智能探索
+phase1_bandit/bandit_ucb.py       # UCB：基于不确定性的智能探索
        ↓
-bandit_thompson.py                # Thompson Sampling：贝叶斯探索（扩展）
+phase1_bandit/bandit_thompson.py  # Thompson Sampling：贝叶斯探索（扩展）
        ↓
 mdp_gridworld.py                  # 网格世界：引入状态、动作、转移
        ↓
@@ -51,10 +52,10 @@ sac_v1.py                         # SAC：最大熵强化学习
 
 | 文件 | 说明 | 学习笔记 |
 |------|------|----------|
-| `bandit.py` | 多臂老虎机基础，贪婪策略演示探索与利用的困境 | `notes/bandit_basic.md` |
-| `bandit_epsilon_greedy.py` | ε-greedy 策略，以 ε 概率探索，对比不同 ε 值效果 | |
-| `bandit_ucb.py` | UCB 上置信界，基于不确定性的智能探索 | |
-| `bandit_thompson.py` | Thompson Sampling，贝叶斯后验采样探索（扩展） | `notes/thompson_sampling_deep_dive.md` |
+| `phase1_bandit/bandit.py` | 多臂老虎机基础，贪婪策略演示探索与利用的困境 | `notes/bandit_basic.md` |
+| `phase1_bandit/bandit_epsilon_greedy.py` | ε-greedy 策略，以 ε 概率探索，对比不同 ε 值效果 | |
+| `phase1_bandit/bandit_ucb.py` | UCB 上置信界，基于不确定性的智能探索 | |
+| `phase1_bandit/bandit_thompson.py` | Thompson Sampling，贝叶斯后验采样探索（扩展） | `notes/thompson_sampling_deep_dive.md` |
 
 ### 阶段二：马尔可夫决策过程（表格方法）
 

@@ -473,9 +473,9 @@ thompson_agent = ThompsonSamplingGaussian(n_arms=10)  # 开箱即用！
 - Thompson (1933): 原始论文《On the Likelihood that One Unknown Probability Exceeds Another in the Light of the Evidence of Two Samples》
 
 ### 相关文件
-- `bandit_thompson.py`：实现代码
-- `bandit_ucb.py`：UCB 对比
-- `bandit_epsilon_greedy.py`：ε-greedy 对比
+- `phase1_bandit/bandit_thompson.py`：实现代码
+- `phase1_bandit/bandit_ucb.py`：UCB 对比
+- `phase1_bandit/bandit_epsilon_greedy.py`：ε-greedy 对比
 
 ---
 
