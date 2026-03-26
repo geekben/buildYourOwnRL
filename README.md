@@ -61,8 +61,8 @@ sac_v1.py                         # SAC：最大熵强化学习
 
 | 文件 | 引入的新概念 | 学习笔记 |
 |------|-------------|----------|
-| `mdp_gridworld.py` | **MDP 基础**，状态、动作、转移概率、折扣因子 | |
-| `value_iteration.py` | **值迭代**，动态规划求解最优价值函数 | |
+| `phase2_mdp/mdp_gridworld.py` | **MDP 基础**，状态、动作、转移概率、折扣因子 | `notes/mdp_gridworld.md` |
+| `phase2_mdp/value_iteration.py` | **值迭代**，动态规划求解最优价值函数 | `notes/value_iteration.md` |
 | `policy_iteration.py` | **策略迭代**，策略评估 + 策略改进交替 | |
 | `q_learning.py` | **Q-Learning**，时序差分，无模型学习 | |
 | `sarsa.py` | **SARSA**，在线策略学习，与 Q-Learning 对比 | |
@@ -135,8 +135,13 @@ Actor-Critic → PPO / SAC（现代算法）
 
 `notes/` 目录包含学习过程中的笔记和实验记录：
 
-**概念解析**
+**阶段一：多臂老虎机**
 - `bandit_basic.md` - 多臂老虎机基础：探索与利用的困境
+- `thompson_sampling_deep_dive.md` - Thompson Sampling 深入解析
+
+**阶段二：马尔可夫决策过程**
+- `mdp_gridworld.md` - MDP 基础：五个元素与网格世界环境
+- `value_iteration.md` - 值迭代：为什么要迭代，为什么能收敛
 
 ## 依赖
 
