@@ -73,11 +73,11 @@ class GridWorld:
         return self.state
     
     def state_to_idx(self, state):
-        """将 转换为状态索引"""
+        """将坐标转换为状态索引"""
         return state[0] * self.size + state[1]
     
     def idx_to_state(self, idx):
-        """将状态索引转换为"""
+        """将状态索引转换为坐标"""
         return (idx // self.size, idx % self.size)
     
     def get_transition_prob(self, state, action, next_state):
