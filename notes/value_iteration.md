@@ -125,6 +125,12 @@ if delta < self.theta:  # theta = 1e-6
 
 **收敛保证**：只要 γ < 1，值迭代一定收敛到 V*。这是因为 Bellman 最优算子是一个 **γ-压缩映射**（contraction mapping），每次迭代都会将误差缩小至少 γ 倍。
 
+### 收敛过程可视化
+
+下图展示了每次迭代中 V 值最大变化量（δ）的下降过程，可以看到 δ 呈指数级衰减：
+
+![收敛过程](../phase2_mdp/images/value_iteration_convergence.png)
+
 ---
 
 ## 代码实现分析
@@ -187,6 +193,24 @@ def compute_q_value(self, state, action):
 ```
 
 这是一个独立的步骤，不参与迭代过程。
+
+### 最终结果可视化
+
+**最优价值函数 V\***：每个格子的数值表示从该位置出发能获得的最大期望累计奖励。越靠近终点 G，价值越高：
+
+![最优价值函数](../phase2_mdp/images/value_iteration_optimal_v.png)
+
+**最优策略 π\***：箭头表示每个状态下应该执行的最优动作，可以看到所有箭头都指向终点方向：
+
+![最优策略](../phase2_mdp/images/value_iteration_optimal_policy.png)
+
+### 随机环境下的结果
+
+当环境存在 20% 的滑倒概率时，最优价值函数整体偏低（不确定性降低了期望收益），策略也更加保守：
+
+![随机环境价值函数](../phase2_mdp/images/value_iteration_stochastic_v.png)
+
+![随机环境策略](../phase2_mdp/images/value_iteration_stochastic_policy.png)
 
 ---
 
@@ -306,4 +330,5 @@ for prob, next_state, reward, done in env.P[state][action]:
 - **关联代码**：`phase2_mdp/value_iteration.py`、`phase2_mdp/mdp_gridworld.py`
 - **前置知识**：`notes/mdp_gridworld.md`
 - **难度等级**：⭐⭐⭐ (中等)
+
 
