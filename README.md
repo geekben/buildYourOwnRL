@@ -63,7 +63,7 @@ sac_v1.py                         # SAC：最大熵强化学习
 |------|-------------|----------|
 | `phase2_mdp/mdp_gridworld.py` | **MDP 基础**，状态、动作、转移概率、折扣因子 | `notes/mdp_gridworld.md` |
 | `phase2_mdp/value_iteration.py` | **值迭代**，动态规划求解最优价值函数 | `notes/value_iteration.md` |
-| `policy_iteration.py` | **策略迭代**，策略评估 + 策略改进交替 | |
+| `phase2_mdp/policy_iteration.py` | **策略迭代**，策略评估 + 策略改进交替 | `notes/policy_iteration.md` |
 | `q_learning.py` | **Q-Learning**，时序差分，无模型学习 | |
 | `sarsa.py` | **SARSA**，在线策略学习，与 Q-Learning 对比 | |
 
@@ -142,6 +142,8 @@ Actor-Critic → PPO / SAC（现代算法）
 **阶段二：马尔可夫决策过程**
 - `mdp_gridworld.md` - MDP 基础：五个元素与网格世界环境
 - `value_iteration.md` - 值迭代：为什么要迭代，为什么能收敛
+- `policy_iteration.md` - 策略迭代：评估与改进的分离，对后续架构演进的作用
+- `policy_gradient_intuition.md` - 从策略改进到策略梯度：深度讨论与直觉理解
 
 ## 依赖
 
@@ -163,3 +165,4 @@ pip install -r requirements.txt
 - [PPO Paper](https://arxiv.org/abs/1707.06347) - Schulman et al., 2017
 - [SAC Paper](https://arxiv.org/abs/1801.01290) - Haarnoja et al., 2018
 - [Spinning Up in Deep RL](https://spinningup.openai.com/) - OpenAI
+
