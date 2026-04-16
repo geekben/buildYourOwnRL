@@ -144,6 +144,7 @@ Actor-Critic → PPO / SAC（现代算法）
 - `value_iteration.md` - 值迭代：为什么要迭代，为什么能收敛
 - `policy_iteration.md` - 策略迭代：评估与改进的分离，对后续架构演进的作用
 - `q_learning.md` - Q-Learning：从规划到学习的跨越，时序差分与无模型学习
+- `model_free_vs_model_based.md` - Model-Free vs Model-Based：RL 的两大流派，Dyna-Q
 - `policy_gradient_intuition.md` - 从策略改进到策略梯度：深度讨论与直觉理解
 
 ## 依赖
