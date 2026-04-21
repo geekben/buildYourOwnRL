@@ -23,15 +23,15 @@ phase1_bandit/bandit_ucb.py       # UCB：基于不确定性的智能探索
        ↓
 phase1_bandit/bandit_thompson.py  # Thompson Sampling：贝叶斯探索（扩展）
        ↓
-mdp_gridworld.py                  # 网格世界：引入状态、动作、转移
+phase2_mdp/mdp_gridworld.py       # 网格世界：引入状态、动作、转移
        ↓
-value_iteration.py                # 值迭代：动态规划求解
+phase2_mdp/value_iteration.py     # 值迭代：动态规划求解
        ↓
-policy_iteration.py               # 策略迭代：另一种 DP 方法
+phase2_mdp/policy_iteration.py    # 策略迭代：另一种 DP 方法
        ↓
 phase2_mdp/q_learning.py          # Q-Learning：表格方法核心
        ↓
-sarsa.py                          # SARSA：在线策略 vs Q-Learning 离线策略
+phase2_mdp/sarsa.py               # SARSA：在线策略 vs Q-Learning 离线策略
        ↓
 dqn_v1.py                         # DQN：从表格到神经网络
        ↓
@@ -65,7 +65,7 @@ sac_v1.py                         # SAC：最大熵强化学习
 | `phase2_mdp/value_iteration.py` | **值迭代**，动态规划求解最优价值函数 | `notes/value_iteration.md` |
 | `phase2_mdp/policy_iteration.py` | **策略迭代**，策略评估 + 策略改进交替 | `notes/policy_iteration.md` |
 | `phase2_mdp/q_learning.py` | **Q-Learning**，时序差分，无模型学习 | `notes/q_learning.md` |
-| `sarsa.py` | **SARSA**，在线策略学习，与 Q-Learning 对比 | |
+| `phase2_mdp/sarsa.py` | **SARSA**，在线策略学习，与 Q-Learning 对比 | `notes/sarsa.md` |
 
 ### 阶段三：深度强化学习
 
@@ -145,6 +145,7 @@ Actor-Critic → PPO / SAC（现代算法）
 - `policy_iteration.md` - 策略迭代：评估与改进的分离，对后续架构演进的作用
 - `q_learning.md` - Q-Learning：从规划到学习的跨越，时序差分与无模型学习
 - `model_free_vs_model_based.md` - Model-Free vs Model-Based：RL 的两大流派，Dyna-Q
+- `sarsa.md` - SARSA：On-policy vs Off-policy，悬崖行走经典对比
 - `policy_gradient_intuition.md` - 从策略改进到策略梯度：深度讨论与直觉理解
 
 ## 依赖
