@@ -33,7 +33,7 @@ phase2_mdp/q_learning.py          # Q-Learning：表格方法核心
        ↓
 phase2_mdp/sarsa.py               # SARSA：在线策略 vs Q-Learning 离线策略
        ↓
-dqn_v1.py                         # DQN：从表格到神经网络
+phase3_dqn/dqn_v1.py              # DQN：从表格到神经网络
        ↓
 dqn_v2_replay_buffer.py           # 经验回放
        ↓
@@ -71,7 +71,7 @@ sac_v1.py                         # SAC：最大熵强化学习
 
 | 文件 | 引入的新概念 | 学习笔记 |
 |------|-------------|----------|
-| `dqn_v1.py` | **神经网络近似 Q 函数**，从表格到深度网络 | |
+| `phase3_dqn/dqn_v1.py` | **神经网络近似 Q 函数**，从表格到深度网络 | `notes/dqn_v1.md` |
 | `dqn_v2_replay_buffer.py` | **经验回放**，打破数据相关性，提高样本效率 | |
 | `dqn_v3_target_network.py` | **目标网络**，稳定训练，避免移动目标问题 | |
 | `dqn_v4_double_dqn.py` | **Double DQN**，解耦动作选择与评估，减少过估计 | |
@@ -147,6 +147,9 @@ Actor-Critic → PPO / SAC（现代算法）
 - `model_free_vs_model_based.md` - Model-Free vs Model-Based：RL 的两大流派，Dyna-Q
 - `sarsa.md` - SARSA：On-policy vs Off-policy，悬崖行走经典对比
 - `policy_gradient_intuition.md` - 从策略改进到策略梯度：深度讨论与直觉理解
+
+**阶段三：深度强化学习**
+- `dqn_v1.md` - DQN v1：从 Q 表到神经网络，泛化与不稳定性
 
 ## 依赖
 
