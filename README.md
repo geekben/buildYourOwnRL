@@ -35,7 +35,7 @@ phase2_mdp/sarsa.py               # SARSA：在线策略 vs Q-Learning 离线策
        ↓
 phase3_dqn/dqn_v1.py              # DQN：从表格到神经网络
        ↓
-dqn_v2_replay_buffer.py           # 经验回放
+phase3_dqn/dqn_v2_replay_buffer.py # 经验回放
        ↓
 dqn_v3_target_network.py          # 目标网络
        ↓
@@ -72,7 +72,7 @@ sac_v1.py                         # SAC：最大熵强化学习
 | 文件 | 引入的新概念 | 学习笔记 |
 |------|-------------|----------|
 | `phase3_dqn/dqn_v1.py` | **神经网络近似 Q 函数**，从表格到深度网络 | `notes/dqn_v1.md` |
-| `dqn_v2_replay_buffer.py` | **经验回放**，打破数据相关性，提高样本效率 | |
+| `phase3_dqn/dqn_v2_replay_buffer.py` | **经验回放**，打破数据相关性，提高样本效率 | `notes/dqn_v2.md` |
 | `dqn_v3_target_network.py` | **目标网络**，稳定训练，避免移动目标问题 | |
 | `dqn_v4_double_dqn.py` | **Double DQN**，解耦动作选择与评估，减少过估计 | |
 | `dqn_v5_dueling.py` | **Dueling 架构**，分离状态价值与动作优势 | |
@@ -150,6 +150,7 @@ Actor-Critic → PPO / SAC（现代算法）
 
 **阶段三：深度强化学习**
 - `dqn_v1.md` - DQN v1：从 Q 表到神经网络，泛化与不稳定性
+- `dqn_v2.md` - DQN v2：经验回放，打破数据相关性
 
 ## 依赖
 
