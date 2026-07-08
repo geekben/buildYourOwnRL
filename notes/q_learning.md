@@ -498,6 +498,8 @@ Q-Learning 的 Q 表需要 |S|×|A| 的存储空间。对于：
 - **最后更新**：2026-04-16
 - **关联代码**：`phase2_mdp/q_learning.py`
 - **前置知识**：`notes/value_iteration.md`、`notes/policy_iteration.md`
-- **延伸阅读**：`notes/model_free_vs_model_based.md`（Model-Free vs Model-Based、Dyna-Q）
+- **延伸阅读**：
+    - `notes/model_free_vs_model_based.md`（Model-Free vs Model-Based、Dyna-Q）
+    - `notes/rl_algorithm_family.md`（Q-Learning 是 off-policy 阵营的源头，DQN/DDPG/SAC 是它的"现代后裔"）
 - **后续内容**：SARSA（on-policy 对比）、DQN（函数近似）
 - **难度等级**：⭐⭐⭐ (中等)

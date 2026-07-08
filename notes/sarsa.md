@@ -489,4 +489,5 @@ SARSA 是少数"名字就是算法"的方法：(S, A, R, S', A') 五元组完整
 - **关联代码**：`phase2_mdp/sarsa.py`
 - **前置知识**：`notes/q_learning.md`
 - **后续内容**：DQN（从表格到神经网络）
+- **延伸阅读**：`notes/rl_algorithm_family.md`（SARSA 是 on-policy 阵营的源头，PPO/RLHF 是它的"现代后裔"）
 - **难度等级**：⭐⭐⭐ (中等)
