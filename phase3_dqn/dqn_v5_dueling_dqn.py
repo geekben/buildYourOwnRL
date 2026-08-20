@@ -454,7 +454,7 @@ def visualize_v4_vs_v5(agent_v4, agent_v5, save_path=None):
                      color=color, linewidth=2, label=label)
     axes[0].set_xlabel('Episode')
     axes[0].set_ylabel('Total Reward')
-    axes[0].set_title('Reward 曲线：Dueling 架构加速学习')
+    axes[0].set_title('Reward Curve: Dueling Architecture Accelerates Learning')
     axes[0].legend(fontsize=11)
     axes[0].grid(True, alpha=0.3)
     axes[0].axhline(y=500, color='green', linestyle='--', alpha=0.3)
@@ -470,11 +470,11 @@ def visualize_v4_vs_v5(agent_v4, agent_v5, save_path=None):
     axes[1].set_xlabel('Training Step')
     axes[1].set_ylabel('Loss (log scale)')
     axes[1].set_yscale('log')
-    axes[1].set_title('TD Loss 曲线（log 刻度）')
+    axes[1].set_title('TD Loss (log scale)')
     axes[1].legend(fontsize=11)
     axes[1].grid(True, alpha=0.3, which='both')
 
-    plt.suptitle('实验 1: DQN v4 vs v5（Dueling DQN）', fontsize=14, y=1.02)
+    plt.suptitle('Exp 1: DQN v4 vs v5 (Dueling DQN)', fontsize=14, y=1.02)
     plt.tight_layout()
     if save_path:
         plt.savefig(save_path, dpi=150, bbox_inches='tight')
@@ -501,11 +501,11 @@ def visualize_va_decomposition(agent_v5, save_path=None):
         axes[0].plot(v_vals, alpha=0.08, color='#4CAF50')
         smoothed = smooth(v_vals, window)
         axes[0].plot(range(window - 1, len(v_vals)), smoothed,
-                     color='#4CAF50', linewidth=2, label='V(s) 状态价值')
+                     color='#4CAF50', linewidth=2, label='V(s) state value')
     axes[0].set_xlabel('Training Step')
     axes[0].set_ylabel('V(s)')
-    axes[0].set_title('Value Stream: V(s) 学到的状态价值\n'
-                      '(随训练增长 → 网络逐渐理解"好状态"的价值)')
+    axes[0].set_title('Value Stream: learned state value V(s)\n'
+                      '(grows with training - network learns "how good is this state")')
     axes[0].legend(fontsize=11)
     axes[0].grid(True, alpha=0.3)
 
@@ -515,11 +515,11 @@ def visualize_va_decomposition(agent_v5, save_path=None):
         axes[1].plot(a_vals, alpha=0.08, color='#FF5722')
         smoothed = smooth(a_vals, window)
         axes[1].plot(range(window - 1, len(a_vals)), smoothed,
-                     color='#FF5722', linewidth=2, label='|A(s,a)| 优势幅度')
+                     color='#FF5722', linewidth=2, label='|A(s,a)| advantage magnitude')
     axes[1].set_xlabel('Training Step')
     axes[1].set_ylabel('mean |A(s,a)|')
-    axes[1].set_title('Advantage Stream: 动作间差异的大小\n'
-                      '(幅度小 → 多数状态下动作选择不太重要，V 流主导)')
+    axes[1].set_title('Advantage Stream: magnitude of action differences\n'
+                      '(small |A| = action choice mostly irrelevant, V dominates)')
     axes[1].legend(fontsize=11)
     axes[1].grid(True, alpha=0.3)
 
@@ -532,20 +532,20 @@ def visualize_va_decomposition(agent_v5, save_path=None):
         axes[2].plot(range(window - 1, window - 1 + n), q_smoothed[:n],
                      color='#2196F3', linewidth=2, label='Q(s,a) = V + A')
         axes[2].plot(range(window - 1, window - 1 + n), v_smoothed[:n],
-                     color='#4CAF50', linewidth=2, label='V(s) 部分')
+                     color='#4CAF50', linewidth=2, label='V(s) component')
         axes[2].fill_between(
             range(window - 1, window - 1 + n),
             v_smoothed[:n], q_smoothed[:n],
-            alpha=0.2, color='#FF5722', label='A(s,a) 部分'
+            alpha=0.2, color='#FF5722', label='A(s,a) component'
         )
     axes[2].set_xlabel('Training Step')
     axes[2].set_ylabel('Value')
-    axes[2].set_title('Q = V + A 分解\n'
-                      '(V 占主导，A 只是微调 → Dueling 让 V 的学习更高效)')
+    axes[2].set_title('Q = V + A decomposition\n'
+                      '(V dominates, A is just fine-tuning - Dueling learns V efficiently)')
     axes[2].legend(fontsize=11)
     axes[2].grid(True, alpha=0.3)
 
-    plt.suptitle('实验 2: Dueling DQN 的 V/A 分解可视化', fontsize=14, y=1.02)
+    plt.suptitle('Exp 2: Dueling DQN V/A Decomposition', fontsize=14, y=1.02)
     plt.tight_layout()
     if save_path:
         plt.savefig(save_path, dpi=150, bbox_inches='tight')
@@ -588,9 +588,9 @@ def visualize_advantage_heatmap(agent_v5, save_path=None):
                           extent=[positions[0], positions[-1],
                                   angles[-1], angles[0]],
                           aspect='auto', cmap='RdYlGn')
-    axes[0].set_xlabel('位置 (position)')
-    axes[0].set_ylabel('角度 (angle)')
-    axes[0].set_title('V(s): 状态价值\n(中心高、边缘低 → 稳定状态价值高)')
+    axes[0].set_xlabel('Position')
+    axes[0].set_ylabel('Angle')
+    axes[0].set_title('V(s): State Value\n(high in center, low at edges - stable states are valuable)')
     plt.colorbar(im0, ax=axes[0])
 
     # |A| 热力图
@@ -598,9 +598,9 @@ def visualize_advantage_heatmap(agent_v5, save_path=None):
                           extent=[positions[0], positions[-1],
                                   angles[-1], angles[0]],
                           aspect='auto', cmap='hot')
-    axes[1].set_xlabel('位置 (position)')
-    axes[1].set_ylabel('角度 (angle)')
-    axes[1].set_title('max|A(s,a)|: 动作选择重要性\n(亮 = 选对动作很关键)')
+    axes[1].set_xlabel('Position')
+    axes[1].set_ylabel('Angle')
+    axes[1].set_title('max|A(s,a)|: Action Selection Importance\n(bright = choosing right action is critical)')
     plt.colorbar(im1, ax=axes[1])
 
     # 最优动作
@@ -608,13 +608,13 @@ def visualize_advantage_heatmap(agent_v5, save_path=None):
                           extent=[positions[0], positions[-1],
                                   angles[-1], angles[0]],
                           aspect='auto', cmap='coolwarm')
-    axes[2].set_xlabel('位置 (position)')
-    axes[2].set_ylabel('角度 (angle)')
-    axes[2].set_title('最优动作 (蓝=左, 红=右)\n(与 |A| 热力图对应：亮处=决策边界)')
+    axes[2].set_xlabel('Position')
+    axes[2].set_ylabel('Angle')
+    axes[2].set_title('Best Action (blue=left, red=right)\n(bright regions in |A| heatmap = decision boundary)')
     plt.colorbar(im2, ax=axes[2])
 
-    plt.suptitle('实验 3: Dueling DQN 学到的 V/A 地形\n'
-                 '(固定速度=0, 角速度=0)', fontsize=14, y=1.02)
+    plt.suptitle('Exp 3: Dueling DQN learned V/A landscape\n'
+                 '(velocity=0, angular_velocity=0)', fontsize=14, y=1.02)
     plt.tight_layout()
     if save_path:
         plt.savefig(save_path, dpi=150, bbox_inches='tight')
@@ -638,7 +638,7 @@ def visualize_acrobot(agent_v4, agent_v5, save_path=None):
                      color=color, linewidth=2, label=label)
     axes[0].set_xlabel('Episode')
     axes[0].set_ylabel('Total Reward')
-    axes[0].set_title('Acrobot Reward\n(越接近 0 越好)')
+    axes[0].set_title('Acrobot Reward\n(closer to 0 is better)')
     axes[0].legend(fontsize=11)
     axes[0].grid(True, alpha=0.3)
 
@@ -653,7 +653,7 @@ def visualize_acrobot(agent_v4, agent_v5, save_path=None):
     axes[1].set_xlabel('Training Step')
     axes[1].set_ylabel('Loss (log scale)')
     axes[1].set_yscale('log')
-    axes[1].set_title('TD Loss（log 刻度）')
+    axes[1].set_title('TD Loss (log scale)')
     axes[1].legend(fontsize=11)
     axes[1].grid(True, alpha=0.3, which='both')
 
@@ -667,11 +667,11 @@ def visualize_acrobot(agent_v4, agent_v5, save_path=None):
                          color=color, linewidth=2, label=label)
     axes[2].set_xlabel('Training Step')
     axes[2].set_ylabel('Estimated max Q(s, ·)')
-    axes[2].set_title('Q 值估计')
+    axes[2].set_title('Q Value Estimates')
     axes[2].legend(fontsize=11)
     axes[2].grid(True, alpha=0.3)
 
-    plt.suptitle('实验 4: Acrobot-v1——动作更多时 Dueling 优势更明显',
+    plt.suptitle('Exp 4: Acrobot-v1 - Dueling advantage more visible with more actions',
                  fontsize=14, y=1.02)
     plt.tight_layout()
     if save_path:
@@ -919,7 +919,7 @@ def experiment_multi_seed():
 if __name__ == '__main__':
     os.makedirs('images', exist_ok=True)
 
-    plt.rcParams['font.sans-serif'] = ['Arial Unicode MS', 'SimHei', 'DejaVu Sans']
+    plt.rcParams['font.sans-serif'] = ['DejaVu Sans']
     plt.rcParams['axes.unicode_minus'] = False
 
     # --- 实验 1：v4 vs v5 ---
